@@ -437,7 +437,45 @@ const tests = {
     errors: [{
       message: 'Unused style detected: styleSheet.bar',
     }],
-  }],
+  },
+  {
+    code: `
+      export const MyComponent = wrapper(() => {
+          const {styles} = useStyles(styleSheet);
+          return (
+              <Text style={styles.foo}>Hello</Text>
+          );
+      });
+      export const styleSheet = createStyleSheet(() => ({
+          foo: {},
+          bar: {},
+      }));
+    `,
+    errors: [{
+      message: 'Unused style detected: styleSheet.bar',
+    }],
+  },
+  {
+    code: `
+      const MyComponent = () => {
+          const {styles} = useStyles(styleSheet);
+          return (
+              <Text style={styles.foo}>Hello</Text>
+          );
+      };
+
+      export const WrappedComponent = wrapper(MyComponent);
+
+      export const styleSheet = createStyleSheet(() => ({
+          foo: {},
+          bar: {},
+      }));
+    `,
+    errors: [{
+      message: 'Unused style detected: styleSheet.bar',
+    }],
+  },
+  ],
 };
 
 const config = {
