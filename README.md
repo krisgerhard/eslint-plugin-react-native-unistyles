@@ -8,7 +8,9 @@
 
 ## Supported Versions
 
-This plugin only supports Unistyles v2 for now, v3 support will be added once v3 is stable and out of beta
+This plugin only supports Unistyles v2 for now
+I am not currently using unistyles due to a change in my career, so I won't be working on v3 support in the foreseeable future
+You're welcome to open a PR or take over the project if you'd like.
 
 ## Installation
 
